@@ -18,6 +18,8 @@ html{
     --bg-color: #000000;
     --primary-text-color: #f4f4f4;
     --bg-button-color: #1a1a1a;
+    --bg-task-color: #2a2a2a;
+    --delete-color: #ff4d4d;
 
 
     /*    padding variables    */
@@ -76,13 +78,23 @@ section{
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
-    
     gap: var(--padding-xxl);
 }
 
 section .task-column{
     background-color: var(--bg-button-color);
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-m);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+section .task-column.hover-over{
+    border: 2px dashed var(--primary-text-color);
+    scale: 1.05;
 }
 
 section .task-column .heading{
@@ -93,3 +105,78 @@ section .task-column .heading{
     padding: var(--padding-m);
 }
 
+section .task-column .task{
+    background-color: var(--bg-task-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s);
+    cursor: grab;  
+}
+
+section .task-column .task button{
+    align-self: flex-end;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-m);
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius-s);
+    background-color: var(--delete-color);
+    color: var(--primary-text-color);
+     
+}
+
+.modale{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modale.active{
+    display: flex   ;
+}
+
+.modale .bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(68, 63, 63, 0.484);
+    backdrop-filter: blur(5px);
+}
+
+
+.modale .center {
+    background-color: var(--bg-button-color);
+    padding: var(--padding-xxl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    z-index: 10;
+}
+
+.modale .center input, .modale .center textarea{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-s);
+
+}
+
+.modale .center button{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-m) var(--padding-l);
+    border-radius: var(--border-radius-m);
+    width: fit-content;
+    align-self: center;
+}
