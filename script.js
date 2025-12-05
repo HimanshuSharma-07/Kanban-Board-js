@@ -56,7 +56,7 @@ board.forEach( (e) => {
 
 const toggelModalButton = document.querySelector("#toggle-modale")
 const modalBg = document.querySelector(".modale .bg")
-const addTaskButton= document.querySelector(".add-new-task")
+const addTaskButton= document.querySelector(".add-task-btn")
 const modale= document.querySelector(".modale")
 
 toggelModalButton.addEventListener('click', (e) => {
@@ -69,10 +69,21 @@ modalBg.addEventListener('click', (e) => {
     
 })
 
-// addTaskButton.addEventListener('click', (e) => {
+addTaskButton.addEventListener('click', (e) => {
         
-//     modale.classList.remove("active")
+    const taskInput = document.querySelector("#task-input")
+    const taskDetails = document.querySelector("#task-detail")
+
+
+
+    document.querySelector("#task-title").innerHTML = taskInput.value
+    document.querySelector("#task-desc").innerHTML = taskDetails.value
     
-// })
+    
+
+
+    modale.classList.remove("active")
+    
+})
 
 
