@@ -41,6 +41,10 @@ function addDragsEventsOnColumn(column){
 
 const board = document.querySelectorAll('.board')
 
+// addDragsEventsOnColumn(todo)
+// addDragsEventsOnColumn(progress)
+// addDragsEventsOnColumn(done)
+
 board.forEach( (e) => {
     const columns = e.querySelectorAll('.task-column');
 
@@ -65,10 +69,10 @@ modalBg.addEventListener('click', (e) => {
     
 })
 
-addTaskButton.addEventListener('click', (e) => {
+// addTaskButton.addEventListener('click', (e) => {
         
-    modale.classList.remove("active")
+//     modale.classList.remove("active")
     
-})
+// })
 
 
