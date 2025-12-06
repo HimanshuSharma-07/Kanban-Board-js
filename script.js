@@ -15,8 +15,6 @@ tasks.forEach(  (task) => {
 })  
 
 
-
-
 function addDragsEventsOnColumn(column){
     column.addEventListener('dragenter', (e) => {
         e.preventDefault();
@@ -35,29 +33,29 @@ function addDragsEventsOnColumn(column){
         e.preventDefault();
         column.appendChild(dragElement)
         column.classList.remove('hover-over')
+
+         [ todo, progress, done ].forEach( (col) => {
+        const tasks = col.querySelectorAll(".task")
+        const count = col.querySelector(".right")
+
+        count.innerHTML = tasks.length;
+    })
+
         
-    })
-}
+   })
+ 
+}   
 
-const board = document.querySelectorAll('.board')
 
-// addDragsEventsOnColumn(todo)
-// addDragsEventsOnColumn(progress)
-// addDragsEventsOnColumn(done)
+addDragsEventsOnColumn(todo)
+addDragsEventsOnColumn(progress)
+addDragsEventsOnColumn(done)
 
-board.forEach( (e) => {
-    const columns = e.querySelectorAll('.task-column');
-
-    columns.forEach( (e) => {
-        addDragsEventsOnColumn(e);
-    })
-
-})
 
 const toggelModalButton = document.querySelector("#toggle-modale")
 const modalBg = document.querySelector(".modale .bg")
-const addTaskButton= document.querySelector(".add-task-btn")
 const modale= document.querySelector(".modale")
+const addTaskButton= document.querySelector("#add-new-task-btn")
 
 toggelModalButton.addEventListener('click', (e) => {
     modale.classList.toggle("active")
@@ -71,19 +69,33 @@ modalBg.addEventListener('click', (e) => {
 
 addTaskButton.addEventListener('click', (e) => {
         
-    const taskInput = document.querySelector("#task-input")
-    const taskDetails = document.querySelector("#task-detail")
+    const taskTitle = document.querySelector("#task-input").value
+    const taskDesc = document.querySelector("#task-desc").value  
 
+    const div = document.createElement("div")
 
+    div.classList.add("task")
+    div.setAttribute("draggable", "true")
 
-    document.querySelector("#task-title").innerHTML = taskInput.value
-    document.querySelector("#task-desc").innerHTML = taskDetails.value
-    
-    
+    div.innerHTML = `
+        <h2>${taskTitle}</h2>
+        <p>${taskDesc}</p>
+        <button>Delete</button>
+    `
+    div.addEventListener('drag', () => {
+        dragElement = div
+    })
 
+    todo.appendChild(div)
 
     modale.classList.remove("active")
+
+    
     
 })
+
+
+
+
 
 
