@@ -188,3 +188,97 @@ section .task-column .task button{
     align-self: center;
 }
 
+@media (max-width: 992px) {
+
+    section {
+        gap: var(--padding-l);
+    }
+
+    nav {
+        padding: 1rem;
+    }
+
+    nav button {
+        padding: var(--padding-s) var(--padding-m);
+    }
+
+    section .task-column {
+        padding: var(--padding-s);
+    }
+
+    .modale .center {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    section {
+        flex-direction: column;
+        gap: var(--padding-xl);
+    }
+
+    section .task-column {
+        width: 100%;
+        flex-grow: unset;
+    }
+
+    .modale .center {
+        width: 90%;
+    }
+
+    nav button {
+        padding: var(--padding-s) var(--padding-m);
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 0.8rem 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    section .task-column .heading {
+        padding: var(--padding-s);
+    }
+
+    section .task-column {
+        padding: var(--padding-s);
+        gap: var(--padding-s);
+    }
+
+    .task h2 {
+        font-size: 1rem;
+    }
+
+    .task p {
+        font-size: 0.85rem;
+    }
+
+    section .task-column .task button {
+        padding: var(--padding-s) var(--padding-m);
+        font-size: 0.75rem;
+    }
+
+    .modale .center {
+        width: 95%;
+        padding: var(--padding-xl);
+    }
+
+    .modale .center input,
+    .modale .center textarea {
+        font-size: 0.9rem;
+    }
+
+}
