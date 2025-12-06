@@ -103,6 +103,9 @@ section .task-column .heading{
     align-items: center;
     justify-content: space-between;
     padding: var(--padding-m);
+    
+    border-bottom: 2px solid #f4f4f4;
+    
 }
 
 section .task-column .task{
